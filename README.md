@@ -1,6 +1,6 @@
 //
 To do:
-[ ] Routing
+[x] Routing
 [ ] About Section
 [ ] Donate Section
 [ ] Submit Form (dialog)
@@ -8,3 +8,4 @@ To do:
 [ ] Take serious websites, not placeholders
 [ ] Part rendering, or pages
 [ ] Animations
+[ ] Cursor line

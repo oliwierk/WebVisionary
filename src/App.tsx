@@ -1,12 +1,15 @@
-import Gallery from "./sections/Gallery";
-import Navbar from "./sections/Navbar";
+import AboutScreen from "./screens/AboutScreen";
+import HomeScreen from "./screens/HomeScreen";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
 	return (
-		<div className='flex flex-col items-center w-full h-full'>
-			<Navbar></Navbar>
-			<Gallery></Gallery>
-		</div>
+		<Router>
+			<Routes>
+				<Route path='/' element={<HomeScreen />} />
+				<Route path='/about' element={<AboutScreen />} />
+			</Routes>
+		</Router>
 	);
 }
 
