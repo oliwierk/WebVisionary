@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "@/sections/Navbar";
+import emailjs from "emailjs-com";
 
 function SubmitScreen() {
 	const [formState, setFormState] = useState({
@@ -10,7 +11,7 @@ function SubmitScreen() {
 		description: "",
 		category: "",
 		consent: false,
-		screenshots: [],
+		screenshots: null,
 	});
 
 	const handleChange = (
@@ -18,7 +19,9 @@ function SubmitScreen() {
 			HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 		>
 	) => {
-		const { name, value, type, checked, files } = e.target;
+		const { name, value, type, checked, files } = e.target as HTMLInputElement &
+			HTMLTextAreaElement &
+			HTMLSelectElement;
 		if (type === "checkbox") {
 			setFormState({ ...formState, [name]: checked });
 		} else if (type === "file") {
@@ -30,7 +33,35 @@ function SubmitScreen() {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		console.log("Form submitted:", formState);
+
+		const emailData = {
+			from_name: formState.name,
+			from_email: formState.email,
+			website_url: formState.url,
+			website_title: formState.title,
+			website_description: formState.description,
+			website_category: formState.category,
+			consent: formState.consent ? "Yes" : "No",
+			to_email: "oliwier.kotlicki@gmail.com",
+		};
+
+		emailjs
+			.send(
+				"service_mggmj24",
+				"template_h43pgj6",
+				emailData,
+				"OoUUlgwRkjb8UAbj0"
+			)
+			.then(response => {
+				console.log("Email sent successfully:", response.status, response.text);
+				alert("Your website submission has been sent successfully!");
+			})
+			.catch(err => {
+				console.error("Failed to send email:", err);
+				alert(
+					"There was an error sending your submission. Please try again later."
+				);
+			});
 	};
 
 	return (
@@ -41,7 +72,7 @@ function SubmitScreen() {
 			</h1>
 			<form
 				onSubmit={handleSubmit}
-				className='w-full max-w-lg p-8 rounded-lg shadow-md mt-12'
+				className='w-full max-w-lg p-8 rounded-lg shadow-md mt-12	'
 			>
 				<div className='mb-4'>
 					<label
@@ -148,7 +179,6 @@ function SubmitScreen() {
 						className='w-full text-gray-700 bg-gray-200 rounded'
 						accept='image/*'
 						multiple
-						required
 					/>
 				</div>
 				<div className='mb-4'>
