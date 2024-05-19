@@ -1,9 +1,9 @@
 //
 To do:
 [x] Routing
-[ ] About Section
+[x] About Section
 [ ] Donate Section
-[ ] Submit Form (dialog)
+[ ] Submit Page
 [ ] Make Links.
 [ ] Take serious websites, not placeholders
 [ ] Part rendering, or pages
