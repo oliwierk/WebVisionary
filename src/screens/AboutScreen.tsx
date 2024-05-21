@@ -23,10 +23,15 @@ function AboutScreen() {
 				</p>
 				<p className='text-3xl text-neutral-400'>
 					The project is operated by{" "}
-					<a className='text-neutral-100 underline'>Oliwier Kotlicki</a>. Send
-					your websites on <a className='text-neutral-100 underline'>email.</a>{" "}
-					If you enjoy the content please{" "}
-					<a className='text-neutral-100 underline'>donate.</a>
+					<a
+						href='https://portfoliov2-mu-azure.vercel.app/'
+						className='text-neutral-100 underline'
+					>
+						Oliwier Kotlicki
+					</a>
+					. Send your websites on{" "}
+					<a className='text-neutral-100 underline'>email.</a> If you enjoy the
+					content please <a className='text-neutral-100 underline'>donate.</a>
 				</p>
 			</div>
 		</div>

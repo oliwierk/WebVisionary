@@ -6,7 +6,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ currentScreen }) => {
 	return (
-		<div className='flex items-center w-[90%] h-24 lg:h-36'>
+		<div className='flex items-center w-[90%] h-24 lg:h-36 navbar'>
 			<div className='w-1/2'>
 				<p className='text-md lg:text-xl text-neutral-50'>WebVisionary</p>
 			</div>
